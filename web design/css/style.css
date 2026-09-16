@@ -4,6 +4,8 @@
   /* border refers to this orange line and text in the middle "Other Stuff"*/
 }
 
+/* classes or tags work */
+
 body{
     background-color: rgb(255, 255, 255);
     border: medium solid rgb(255, 81, 0);
@@ -20,4 +22,8 @@ button{
     margin: 5px;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
+}
+
+.recipe{
+    background-color:bisque
 }
