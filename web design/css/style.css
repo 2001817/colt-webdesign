@@ -1,0 +1,23 @@
+.border {
+  background-color: rgb(255, 81, 0);
+  color: white;
+  /* border refers to this orange line and text in the middle "Other Stuff"*/
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    border: medium solid rgb(255, 81, 0);
+    /* padding would be here but it breaks the full line of color across the screen */
+}
+h1,p,blockquote,pre,a{
+    padding-left: 10px;
+}
+
+/* how to make button not inside of border? */
+button{
+    background-color: rgb(240, 240, 240);
+    color: black;
+    margin: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}

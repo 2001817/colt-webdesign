@@ -13,7 +13,7 @@
   
   -->
 
-<h1>About Me</h1>
+  <h1>About Me</h1>
 
   <ul>
       <li>my name is colt</li>
@@ -23,44 +23,61 @@
       <li>my only unblocked games website was blocked last year</li>
   </ul>
 
-  <p>top five resturants</p>
+
+
+<p></p>
+<h1>Paragraph time</h1>
+
+  <p>I was born at a very young age. I know, very sad. Anyway I found out about coding when i was probably around 11 or 12 
+    after playing Roblox and realising that they had their own game builder and coding language. My parents bought me an
+    unreasonably expensive online course for it that was fun, but I probably could have just watched a few youtube videos haha.
+  </p> <p>
+    I have a few other interests though. Video games is probably my number one, you could say i'm an addict.
+    I also like animation, like for example those simple stickman animations you can find on newgrounds. not very good at it yet though.
+    This CSS stuff is fun.
+  </p>
+
+  <p></p>
+  <h2 class="border">Other Stuff</h2>
+
+  <p>here's a funny quote</p>
+  <blockquote>"I am iron man" -Iron Man</blockquote>
+
+  <p>top five resturants / fast food</p>
   <ol>
-    <li></li>
+    <li>Dominoes</li>
     <li>Mod Pizza (used to be number 1 but they changed recipies)</li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Pizza Hut</li>
+    <li>Teriaki and Pho</li>
+    <li>Chick Fil A</li>
   </ol>
 
-<p></p>
-<h1></h1>
-<p></p>
-
-<p></p>
-<h2 class="aaa">other stuff</h2>
-
-
-<a href="index.html">back to the lobby</a>
-<p></p>
+  <a href="../index.html">back to the lobby</a>
+  <p></p>
 
 
 
 
+<!-- lesson learned. dont use <code> that's not what it's for use <script> -->
 
+<button id="button">
+  <p id="button_text">on click, this button adds one to the number right there -> 0</p>
+</button>
+  <!-- script should be outside of button
+  turns out it was ONE capital letter that made me go insane don't start with a capital for ADDEVENTLISTENER 
+  i understand it now
+  -->
+<script>
+    var x = 0;
+    document.getElementById("button").addEventListener('click', function() {
+      x++;
+      document.getElementById("button_text").innerHTML = 'on click, this button adds one to the number right there -> ' + x;
+    });
 
-<code>
-  <button>
-    <p>the most epic button of all time</p>
-    
-  </button>
-</code>
+</script>
 
-<style>
-  .aaa {
-    background-color: rgb(255, 81, 0);
-    color: white;
-  }
-</style>
+<!-- link stylesheet, no more messy stuff in this already big file -->
+<link rel="stylesheet" href="../css/style.css">
 
 </body>
 </html>
