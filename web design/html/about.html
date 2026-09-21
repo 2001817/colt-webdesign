@@ -31,13 +31,12 @@
   <p>I was born at a very young age. I know, very sad. Anyway I found out about coding when i was probably around 11 or 12 
     after playing Roblox and realising that they had their own game builder and coding language. My parents bought me an
     unreasonably expensive online course for it that was fun, but I probably could have just watched a few youtube videos haha.
-  </p> <p>
+  <br> <br>
     I have a few other interests though. Video games is probably my number one, you could say i'm an addict.
     I also like animation, like for example those simple stickman animations you can find on newgrounds. not very good at it yet though.
     This CSS stuff is fun.
   </p>
 
-  <p></p>
   <h2 class="border">Other Stuff</h2>
 
   <p>here's a funny quote</p>
@@ -52,29 +51,37 @@
     <li>Chick Fil A</li>
   </ol>
 
-  <a href="../index.html">back to the lobby</a>
-  <p></p>
 
-
+  
 
 
   <!-- lesson learned. dont use <code> that's not what it's for, use <script> 
   this button thing is from w3schools  -->
-<button id="button">
-  <p id="button_text">on click, this button adds one to the number right there -> 0</p>
-</button>
-  <!-- script should be outside of button
-  turns out it was ONE capital letter that made me go insane don't start with a capital for ADDEVENTLISTENER 
-  i understand it now
-  -->
-<script>
+  <button id="button">
+    <p id="button_text">on click, this button adds one to the number right there -> 0</p>
+  </button>
+    <!-- script should be outside of button
+    turns out it was ONE capital letter that made me go insane don't start with a capital for ADDEVENTLISTENER 
+    i understand it now
+    -->
+  <script>
     var x = 0;
     document.getElementById("button").addEventListener('click', function() {
       x++;
       document.getElementById("button_text").innerHTML = 'on click, this button adds one to the number right there -> ' + x;
     });
 
-</script>
+  </script>
+
+  <br>
+  <br>
+  <a href="../index.html">back to the lobby</a>
+  <p></p>
+  <!-- <p></p> is bad programming, use <br> for line break
+   
+  is what i would say if it worked here??? but no
+  -->
+  
 
 <!-- link stylesheet, no more messy stuff in this already big file -->
 <link rel="stylesheet" href="../css/style.css">

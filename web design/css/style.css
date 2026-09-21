@@ -15,7 +15,7 @@ h1,p,blockquote,pre,a{
     padding-left: 10px;
 }
 
-/* how to make button not inside of border? */
+/* epic */
 button{
     background-color: rgb(240, 240, 240);
     color: black;
@@ -25,5 +25,5 @@ button{
 }
 
 .recipe{
-    background-color:bisque
+    background-color:bisque;
 }
