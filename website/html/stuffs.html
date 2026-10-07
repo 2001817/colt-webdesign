@@ -6,10 +6,46 @@
     <title>stuffs</title>
 </head>
 <body>
-    <iframe src="about.html" height="700" width="400">
 
-    </iframe>
+    <!--cookie clicker-->
+
+    <button id="clicker">
+        monies: 0
+    </button>
+
+    <!--<button id="buy1">
+        +1 cash per click for X monies
+    </button>-->
+
+    <script>
+        // n at the end turns the int to bigint (no bit limit integer)
+        let cash = 84563;
+        const button = document.getElementById("clicker")
+
+        // future proof
+        // just incase new features are added
+        // big int is just incase it gets into the billions
+        //let mult = 1; let add = 0; let exp = 1;
+        //let earn = (mult * (1 + add) ^ exp);
+        button.addEventListener("click", function(){
+            cash += 1;
+            document.getElementById("clicker").innerHTML = "monies: " += String(cash);
+        });
+
+        //document.getElementById("buy1").addEventListener("click", function(price){
+        //    if(price > cash){
+                // do nothing
+        //   }
+
+            // price will eventually get too expensive to buy
+        //    else if (price <= cash){add += 1; price = (price + 1)^1.1}
+        //});
+    </script>
+
     <br>
     <a href="../../index.html">back to the lobby</a>
 </body>
+
+<link rel="stylesheet" href="../css/style.css">
+
 </html>

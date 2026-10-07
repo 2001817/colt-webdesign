@@ -11,18 +11,22 @@ body{
     border: medium solid rgb(255, 81, 0);
     /* padding would be here but it breaks the full line of color across the screen */
 }
-h1,p,blockquote,pre,a{
+h1, p, blockquote, pre, a{
     padding-left: 10px;
 }
 
 /* epic */
 button{
-    background-color: rgb(240, 240, 240);
-    color: black;
+    /*background-color: rgb(240, 240, 240);
+    color: black;*/
     margin: 5px;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 10px;
+    /*border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;*/
     cursor: pointer;
+}
+
+img{
+    margin-left: 5px;
 }
 
 /*.recipe{
