@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>stuffs</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -13,39 +14,47 @@
         monies: 0
     </button>
 
-    <!--<button id="buy1">
+    <button id="upg">
         +1 cash per click for X monies
-    </button>-->
+    </button>
 
     <script>
+        // heard about this thing called BigInt after some guy made infinite chess
         // n at the end turns the int to bigint (no bit limit integer)
-        let cash = 84563;
+        //
+        let cash = 0n;
         const button = document.getElementById("clicker")
 
         // future proof
         // just incase new features are added
         // big int is just incase it gets into the billions
-        //let mult = 1; let add = 0; let exp = 1;
-        //let earn = (mult * (1 + add) ^ exp);
+        let mult = 1n; let add = 0n; let exp = 1n;
+        let price1 = 1n;
+
+        // don't use ^ for exponent, also the 1 + add screws stuff up because it isn't BigInt
+        let earn = (mult * (1n + add) ** exp);
         button.addEventListener("click", function(){
-            cash += 1;
-            document.getElementById("clicker").innerHTML = "monies: " += String(cash);
+            cash += earn;
+            document.getElementById("clicker").innerHTML = "monies: " + String(cash);
         });
 
-        //document.getElementById("buy1").addEventListener("click", function(price){
-        //    if(price > cash){
-                // do nothing
-        //   }
+        document.getElementById("upg").addEventListener("click", buy("upg", price1, 1, 1.1));
 
+        //use for every upgrade button, so make it flexible
+        function buy(ID, price, addition, power){
             // price will eventually get too expensive to buy
-        //    else if (price <= cash){add += 1; price = (price + 1)^1.1}
-        //});
+             if (price <= cash){
+                add += 1; price = (price + addition) ** power
+                document.getElementById(ID).innerHTML = "+1 cash per click for " + String(price) + " monies";
+                button.innerHTML="monies: " + String(cash);
+            }
+        };
     </script>
 
     <br>
     <a href="../../index.html">back to the lobby</a>
 </body>
 
-<link rel="stylesheet" href="../css/style.css">
+
 
 </html>
