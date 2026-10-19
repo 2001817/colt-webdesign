@@ -15,7 +15,7 @@
     </button>
 
     <button id="upg">
-        +1 cash per click for X monies
+        +1 cash per click for 1 money
     </button>
 
     <script>
@@ -50,8 +50,11 @@
                 add += 1;
 
                 // this does not update the given price for some reason
+                // even if you break it down into segments
                 price = (price + addition) ** power;
                 price = Math.round(price);
+
+                
 
                 document.getElementById(ID).innerHTML = "+1 cash per click for " + String(price) + " monies";
                 button.innerHTML = "monies: " + String(cash);
@@ -59,11 +62,16 @@
                 console.log("bought");
 
                 // for some reason variables made out of variables never update, ever. so gonna do that manually now
-                earn =((mult * add) ** exp);
+                earn = ((mult * add) ** exp);
+                // NOPE< still doesn't work
+
+                // ok ok so the price variable is updated but not the var inside it (price1, price2, etc).
+                return price;
             }
         };
 
         document.getElementById("upg").addEventListener("click", buy("upg", price1, 1, 1.1));
+
     </script>
 
     <br>
