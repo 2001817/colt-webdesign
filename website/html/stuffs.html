@@ -8,7 +8,8 @@
 </head>
 <body>
 
-    <!--cookie clicker-->
+    <!-- cookie clicker, basically -->
+    <p id="earnings" >money per click: $1</p>
 
     <button id="clicker">
         monies: 0
@@ -18,75 +19,21 @@
         +1 cash per click for 1 money
     </button>
 
-    <!-- W3schools says you can link a file like a stylesheet, but it's using the script attribute
-     It's getting quite long anyway, time for it to split up 
+    <button id="upg2">
+        double cash per click for 500 monies
+    </button>
 
-    <script src="stuffs.js"></script> -->
-
-
-    <script>
-        // heard about this thing called BigInt after some guy made infinite chess
-        // n at the end turns the int to bigint (no bit limit integer)
-        //
-        let cash = 0;
-        const button = document.getElementById("clicker")
-
-        // future proof
-        // just incase new features are added
-        // big int is just incase it gets into the billions
-        let mult = 1; let add = 1; let exp = 1;
-        let price1 = 1;
-
-        // don't use ^ for exponent, also the 1 + add screws stuff up because it isn't BigInt
-        let earn = ((mult * add)** exp);
-        button.addEventListener("click", function(){
-            cash += earn;
-            document.getElementById("clicker").innerHTML = "monies: " + String(cash);
-        });
-
-        //use for every upgrade button, so make it flexible
-        function buy(ID, price, addition, multiply, power, A, B, C){
-            // price will eventually get too expensive to buy
-            console.log("called");
-             if (price <= cash){
-                console.log("passed");
-                
-                cash -= price;
-
-                add += A;
-                mult += B;
-                exp += C;
-
-                // this does not update the given price variable, just the temporary variable.
-                // price must be sent back to the code asking for it to update the actual price (ex: price1)
-                price = ((price + addition) * multiply ) ** power;
-                price = Math.round(price);
-
-                
-
-                document.getElementById(ID).innerHTML = "+1 cash per click for " + String(price) + " monies";
-                button.innerHTML = "monies: " + String(cash);
-
-                console.log("bought");
-
-                // for some reason variables made out of variables never update, ever.
-                // so gonna do that manually now
-                earn = ((mult * add) ** exp);
-
-                return price;
-            }
-        };
-
-        // yep, idfk what's happening here. maybe i'm dumb but addEventListener doesn't work, UNLESS:
-        // you make an entirely new function... so i just called the other function... this feels stupid
-        document.getElementById("upg").addEventListener("click", function(){
-            price1 = buy("upg", price1, 1, 1.1);
-        });
-
-    </script>
 
     <br>
     <a href="../../index.html">back to the lobby</a>
+    
+    <!-- more W3schools digging, found this thing
+    basically stylesheet link for scripting
+    
+    was gonna do this, but now everything is Not A Number / NaN
+
+    update: nvm, i forgot I added new variables equal to nothing -->
+    <script src="../javascript/stuffs.js"></script>
 </body>
 
 
