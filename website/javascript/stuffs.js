@@ -15,6 +15,21 @@ button.addEventListener("click", function(){
     document.getElementById("clicker").innerHTML = "monies: " + String(cash);
 });
 
+// ex: 1000000 --> 1,000,000
+//      input       output
+function comma(num){
+    var num_comma
+    for(var i = num; i >= 1000; i /= 100){
+        // if i > 1000, go 3 spaces right, and add comma? something like that...
+    }
+}
+
+
+
+
+
+
+
 //use for every upgrade button, so make it flexible
 function buy(ID, price, addition, multiply, power, A, B, C, msg){
     // price will eventually get too expensive to buy
@@ -55,3 +70,6 @@ document.getElementById("upg").addEventListener("click", function(){
 document.getElementById("upg2").addEventListener("click", function(){
     price2 = buy("upg2", price2, 0, 3, 1, 0, 2, 1, "double money per click for ");
 });
+
+
+
