@@ -13,6 +13,7 @@ body{
 }
 h1, p, blockquote, pre{
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* epic */
@@ -33,10 +34,12 @@ a{
     padding-left:10px;
 }
 
-#earnings{
+#earnings, #earnings2{
     color: grey;
     font-size: 30px;
     margin-bottom: 5px;
     margin-top: 5px;
     font-family: Verdana;
+    display: inline-block;
 }
+#earnings2{float: right;}
