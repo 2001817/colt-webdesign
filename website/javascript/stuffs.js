@@ -1,12 +1,19 @@
-let cash = 0;
-const button = document.getElementById("clicker")
-
 // future proof
 // just incase new features are added
-// big int is just incase it gets into the billions
-let mult = 1; let add = 1; let exp = 1;
-let price1 = 1;
+
+const button = document.getElementById("clicker")
+let cash = 0;
+let mult = 1; let add = 1; let exp = 1; // grouped because they are for 1 formula
+
+let price1 = 1; // button prices group
 let price2 = 2000;
+let price3;
+let price4;
+let price5 = 1000000
+
+let income = 1; let time = 2000; // passive income group
+
+
 
 // don't use ^ for exponent, also the 1 + add screws stuff up because it isn't BigInt
 let earn = ((mult * add) ** exp);
@@ -18,8 +25,8 @@ button.addEventListener("click", function(){
 // ex: 1000000 --> 1,000,000
 //      input       output
 function comma(num){
-    var num_comma
-    for(var i = num; i >= 1000; i /= 100){
+    let num_comma;
+    for(let i = num; i >= 1000; i /= 100){
         // if i > 1000, go 3 spaces right, and add comma? something like that...
     }
 }
@@ -31,10 +38,12 @@ function comma(num){
 
 
 //use for every upgrade button, so make it flexible
-function buy(ID, price, addition, multiply, power, A, B, C, msg){
+function buy(ID, price, addition, multiply, power, A, B, C, msg, P){
     // price will eventually get too expensive to buy
     console.log("called");
      if (price <= cash){
+
+        income += P;
 
         cash -= price;
 
@@ -61,11 +70,11 @@ function buy(ID, price, addition, multiply, power, A, B, C, msg){
 
 // yep, idfk what's happening here. maybe i'm dumb but addEventListener doesn't work, UNLESS:
 // you make an entirely new function... so i just called the other function... this feels stupid
-document.getElementById("upg").addEventListener("click", function(){
-    price1 = buy("upg", price1,      1,      1.4,       1,      1,      1,      1, "+1 cash per click");
-    //       | button | price of |  price | price | price    | add,   mult,  exponent |
-});//        | name   | button   |  added | mult  | exponent |    money per click     |
-  // use for everything :)
+document.getElementById("upg1").addEventListener("click", function(){
+    price1 = buy("upg1", price1,      1,      1.4,       1,      1,      1,      1, "+1 cash per click");
+    //       | button | price of |  price | price | price    | add,   mult,  exponent | message for | passive |
+});//        | name   | button   |  added | mult  | exponent |    money per click     | button      |  income |
+  // use for everything :)                                                                         (none in this case)
 
 document.getElementById("upg2").addEventListener("click", function(){
     price2 = buy("upg2", price2, 0, 3.5, 1, 0, 2, 1, "double money per click");
@@ -73,3 +82,15 @@ document.getElementById("upg2").addEventListener("click", function(){
 
 
 
+function workers(){
+    cash += income
+    button.innerHTML = "monies: " + String(cash);
+}
+
+// moreee w3schools digging for treasure
+// yarr! thar be gold on this website!
+setInterval(workers, time);
+
+document.getElementById("passive").addEventListener("click", function(){
+    price2 = buy("passive", price2, 0, 3.5, 1, 0, 2, 1, "double money per click");
+});
