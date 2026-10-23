@@ -6,7 +6,7 @@ const button = document.getElementById("clicker")
 // big int is just incase it gets into the billions
 let mult = 1; let add = 1; let exp = 1;
 let price1 = 1;
-let price2 = 500;
+let price2 = 2000;
 
 // don't use ^ for exponent, also the 1 + add screws stuff up because it isn't BigInt
 let earn = ((mult * add) ** exp);
@@ -51,7 +51,7 @@ function buy(ID, price, addition, multiply, power, A, B, C, msg){
         price = Math.round(price);
 
         // each button must have slightly different messages
-        document.getElementById(ID).innerHTML = msg + String(price) + " monies";
+        document.getElementById(ID).innerHTML = msg + "<br>" + String(price) + " monies";
         button.innerHTML = "monies: " + String(cash);
 
         console.log("bought");     
@@ -62,13 +62,13 @@ function buy(ID, price, addition, multiply, power, A, B, C, msg){
 // yep, idfk what's happening here. maybe i'm dumb but addEventListener doesn't work, UNLESS:
 // you make an entirely new function... so i just called the other function... this feels stupid
 document.getElementById("upg").addEventListener("click", function(){
-    price1 = buy("upg", price1,      1,      1.1,       1,      1,      1,      1, "+1 cash per click for ");
+    price1 = buy("upg", price1,      1,      1.4,       1,      1,      1,      1, "+1 cash per click");
     //       | button | price of |  price | price | price    | add,   mult,  exponent |
 });//        | name   | button   |  added | mult  | exponent |    money per click     |
   // use for everything :)
 
 document.getElementById("upg2").addEventListener("click", function(){
-    price2 = buy("upg2", price2, 0, 3, 1, 0, 2, 1, "double money per click for ");
+    price2 = buy("upg2", price2, 0, 3.5, 1, 0, 2, 1, "double money per click");
 });
 
 
