@@ -6,38 +6,55 @@
     <title>stuffs</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-
+<body class = "grid">
     <!-- cookie clicker, basically -->
-    <p id="earnings" >money per click: $1</p>
-    <p id="earnings2"> passive gain per 1 seconds: $0</p>
-    <br> <!--because of how i do my weird css (these 2 are inline, so)-->
+    <div class="header">
+        <p id="earnings" >money per click: $1</p>
+        <p id="earnings2"> passive gain per 2 seconds: $0</p>
+    </div>
 
-    <button id="clicker">
-        monies: 0<br>click for $$$
-    </button>
+    <br> <!--because of how i do my weird css (these 2 are inline, so)
+    
+    this top thing is the header, i guess
+    -->
 
-    <button id="upg1">+1 cash per click<br>1 money</button>
 
-    <button id="upg2">double cash per click<br>2000 monies</button>
+    <!-- body, should have 2 sides, play game and upgrade. upgrade has 2 rows, for normal and passive upgrades.-->
 
-    <button id="passive1">hire workers<br> 30 monies</button>
 
-    <button id="passive_speed">upgrade worker speed<br>450 monies</button>
+    <div class="left">
+        <button id="clicker">
+            monies: 0<br>click for $$$
+        </button>
 
-    <br>
-    <button id="win">Win the game!<br>1,000,000 dollars.</button>
+        <button id="win">Win the game!<br>1,000,000 dollars.</button>
 
-    <br>
+    </div>
+
+    <div class="right">
+
+        <div class="upper">
+            <button id="upg1">+1 cash per click<br>1 money</button>
+            <button id="upg2">double cash per click<br>2000 monies</button>
+        </div>
+
+        <!--I want this area to be a second row on the left.-->
+        <div class="lower">
+            <button id="passive1">hire workers<br> 30 monies</button>
+
+            <button id="passive_speed">upgrade worker speed<br>450 monies</button>
+        </div>
+    </div>
+    
+    <div class="footer">
+    <p>Other games in progress :)</p>
     <a href="../../index.html">back to the lobby</a>
     
     <!-- more W3schools digging, found this thing
-    basically stylesheet link for scripting
-    
-    was gonna do this, but now everything is Not A Number / NaN
-
-    update: nvm, i forgot I added new variables equal to nothing -->
+    basically stylesheet link for scripting-->
     <script src="../javascript/stuffs.js"></script>
+    <noscript>WARNING <br>This game will not work, as your PC's browser doesn't have javascript enabled.</noscript>
+    </div>
 </body>
 
 

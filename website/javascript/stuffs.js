@@ -28,6 +28,8 @@ function comma(num){
     let num_comma;
     for(let i = num; i >= 1000; i /= 100){
         // if i > 1000, go 3 spaces right, and add comma? something like that...
+
+        // when done, return string of number+commas
     }
 }
 
@@ -40,14 +42,13 @@ function comma(num){
 //use for every upgrade button, so make it flexible... maybe it's gotten too flexible.
 function buy(ID, price, addition, multiply, power, A, B, C, msg, P, speed){
     // price will eventually get too expensive to buy
-    console.log("called");
+    //console.log("called");
      if (price <= cash){
         cash -= price;
 
         income += P;
         time -= speed;
-        document.getElementById("earnings2").innerHTML = "passive gain per " + String((time/1000),);
-        <p id="earnings2"> passive gain per 1 seconds: $0</p>
+        document.getElementById("earnings2").innerHTML = "passive gain per " + String((time/1000) + " seconds: $" + String(income));
 
         add += A;
         mult *= B;
@@ -65,7 +66,7 @@ function buy(ID, price, addition, multiply, power, A, B, C, msg, P, speed){
         document.getElementById(ID).innerHTML = msg + "<br>" + String(price) + " monies";
         button.innerHTML = "monies: " + String(cash) + "<br>click for $$$";
 
-        console.log("bought");     
+        //console.log("bought");     
     }// this must be outside if statement. otherwise every time it fails price becomes undefined
     return price;
 };
@@ -92,6 +93,7 @@ function workers(){
 // moreee w3schools digging for treasure
 // yarr! thar be gold on this website!
 setInterval(workers, time);
+// this doesn't update, ever. also, it needlessly runs before workers are hired.
 
 document.getElementById("passive1").addEventListener("click", function(){
     price3 = buy("passive1", price3, 3, 1.2, 1, 0, 1, 1, "hire workers", 1, 0);

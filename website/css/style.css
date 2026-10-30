@@ -34,8 +34,10 @@ a{
     padding-left:10px;
 }
 
-#earnings, #earnings2{
-    color: grey;
+/* This line begins the (only) stuffs.html styling*/
+
+#earnings, #earnings2, #xtra{
+    color: rgb(89, 89, 89);
     font-size: 30px;
     margin-bottom: 5px;
     margin-top: 5px;
@@ -43,3 +45,51 @@ a{
     display: inline-block;
 }
 #earnings2{float: right;}
+
+.grid{
+    display: grid;
+    grid-template-areas:
+    /* MUST HAVE 2 COLUMNS EVERY ROW IF YOU WANT 2 COLUMNS
+        (even if it won't show it) (header 2x means no column there)
+    */
+    "header header"
+    "left right"
+    "left right"
+    "footer footer";
+    grid-column: auto auto;
+}
+
+
+/* messing with border
+
+for 4 sided:
+first is top, second right, third bottom, last left
+
+for 3 sided:
+first top, second right and left, last bottom
+
+for example: I want header seperated from the others,
+so i have a bottom border for it */
+
+.header{
+    border-style:none none solid;
+    grid-area: header;
+    text-align: left;
+}
+.left{
+    border-style:none solid none none;
+    grid-area: left;
+}
+.right{
+    border-style:none;
+    grid-area: right;
+}
+.footer{
+    border-style: solid none none;
+    grid-area: footer;
+}
+
+.upper{
+    border: none none solid;
+}
+/**/
