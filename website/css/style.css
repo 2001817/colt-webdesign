@@ -71,6 +71,13 @@ first top, second right and left, last bottom
 for example: I want header seperated from the others,
 so i have a bottom border for it */
 
+.upper, .lower {
+    /*make everything bigger in size so it doesn't take up
+    only one tenth of the web page (not right because it's TWO rows, so itd mess up stuff)*/
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
 .header{
     border-style:none none solid;
     grid-area: header;
@@ -80,10 +87,18 @@ so i have a bottom border for it */
     border-style:none solid none none;
     grid-area: left;
 }
+
 .right{
-    border-style:none;
     grid-area: right;
+    text-align: center;
 }
+
+.upper{
+    /* add row line border */
+    border-style: none none solid;
+}
+
+
 .footer{
     border-style: solid none none;
     grid-area: footer;
@@ -92,4 +107,3 @@ so i have a bottom border for it */
 .upper{
     border: none none solid;
 }
-/**/

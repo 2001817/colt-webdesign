@@ -25,10 +25,10 @@ button.addEventListener("click", function(){
 // ex: 1000000 --> 1,000,000
 //      input       output
 function comma(num){
-    let num_comma;
+    let num_comma = string(num);
     for(let i = num; i >= 1000; i /= 100){
         // if i > 1000, go 3 spaces right, and add comma? something like that...
-
+        num_comma.slice(-3)
         // when done, return string of number+commas
     }
 }
@@ -94,6 +94,12 @@ function workers(){
 // yarr! thar be gold on this website!
 setInterval(workers, time);
 // this doesn't update, ever. also, it needlessly runs before workers are hired.
+
+function setintervalfix(){
+    // when called, make workers do work
+    // wait TIME miliseconds... and actually use the updated value...
+    // but how...
+}
 
 document.getElementById("passive1").addEventListener("click", function(){
     price3 = buy("passive1", price3, 3, 1.2, 1, 0, 1, 1, "hire workers", 1, 0);
