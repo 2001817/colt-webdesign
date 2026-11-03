@@ -2,7 +2,7 @@
 // just incase new features are added
 
 const button = document.getElementById("clicker")
-let cash = 0;
+let cash = 10000000;
 let mult = 1; let add = 1; let exp = 1; // grouped because they are for 1 formula
 
 let price1 = 1; // button prices group
@@ -25,15 +25,25 @@ button.addEventListener("click", function(){
 // ex: 1000000 --> 1,000,000
 //      input       output
 function comma(num){
-    let num_comma = string(num);
-    for(let i = num; i >= 1000; i /= 100){
-        // if i > 1000, go 3 spaces right, and add comma? something like that...
-        num_comma.slice(-3)
-        // when done, return string of number+commas
+    // probably need 3 variables to swap around stuff
+    let num_comma = String(num).slice(0, -3);;
+    let extra = "";
+    for(let i = num; i >= 1000; i){
+
+        // if i > 1000, take everything up until last 3 spaces, add comma, add back last 3.
+        extra = extra + "," + String(num).slice(-3);
+        
+        i = num_comma;
+        // not 100% sure what i'm doing, but it works perfectly :)
+
+        console.log(num_comma);
+        console.log(extra);
+        num_comma = num_comma.slice(0, -3);
+
     }
+    
+    return num_comma + extra;
 }
-
-
 
 
 
@@ -64,7 +74,7 @@ function buy(ID, price, addition, multiply, power, A, B, C, msg, P, speed){
 
         // each button must have slightly different messages
         document.getElementById(ID).innerHTML = msg + "<br>" + String(price) + " monies";
-        button.innerHTML = "monies: " + String(cash) + "<br>click for $$$";
+        button.innerHTML = "monies: " + comma(cash) + "<br>click for $$$";
 
         //console.log("bought");     
     }// this must be outside if statement. otherwise every time it fails price becomes undefined
@@ -87,7 +97,7 @@ document.getElementById("upg2").addEventListener("click", function(){
 
 function workers(){
     cash += income;
-    button.innerHTML = "monies: " + String(cash) + "<br>click for $$$";
+    button.innerHTML = "monies: " + comma(cash) + "<br>click for $$$";
 }
 
 // moreee w3schools digging for treasure
