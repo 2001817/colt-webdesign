@@ -2,7 +2,7 @@
 // just incase new features are added
 
 const button = document.getElementById("clicker")
-let cash = 10000000;
+let cash = 10482700;
 let mult = 1; let add = 1; let exp = 1; // grouped because they are for 1 formula
 
 let price1 = 1; // button prices group
@@ -28,21 +28,24 @@ function comma(num){
     // probably need 3 variables to swap around stuff
     let num_comma = String(num).slice(0, -3);;
     let extra = "";
+    let old = "";
     for(let i = num; i >= 1000; i){
 
         // if i > 1000, take everything up until last 3 spaces, add comma, add back last 3.
+        old = num_comma;
         extra = extra + "," + String(num).slice(-3);
         
         i = num_comma;
-        // not 100% sure what i'm doing, but it works perfectly :)
+        // not 100% sure what i'm doing, but it works perfectly :) somehow
 
-        console.log(num_comma);
-        console.log(extra);
+        //console.log(num_comma);
+        //console.log(extra);
+
         num_comma = num_comma.slice(0, -3);
 
     }
     
-    return num_comma + extra;
+    return old + extra;
 }
 
 

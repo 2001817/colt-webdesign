@@ -26,6 +26,10 @@ button{
     cursor: pointer;
 }
 
+button:hover{
+    background-color: whitesmoke;
+}
+
 img{
     margin-left: 5px;
 }
