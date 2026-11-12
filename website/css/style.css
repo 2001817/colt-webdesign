@@ -1,3 +1,21 @@
+/* newwww stufffff game 2*/
+
+header{
+    border: rgb(255, 81, 0);
+    border-style: none none dashed;
+}
+
+body{
+
+}
+
+footer{
+    border: rgb(255, 81, 0);
+    border-style: solid none none;
+    background-color: lightgrey;
+    padding-bottom: 10px;
+}
+
 .border {
   background-color: rgb(255, 81, 0);
   color: white;
