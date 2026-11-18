@@ -1,16 +1,25 @@
 /* newwww stufffff game 2*/
-
+aside{display:inline-block;}
 .top, .mid, .bot{
     text-align: center;
 }
 
 .game2_main{margin-top: 5%; margin-bottom: 5%;}
-
-.top button, .mid button, .bot button{
-    font-size: x-large;
+.game2_main button{
+    width: 40px;
+    height: 40px;
+    border-style: outset;
+    border-color: grey;
 }
 
-/*                       */
+.game2_main h1{
+    text-align: center;
+}
+.game2_main div{
+    height: 50px;
+}
+
+/*------------------------*/
 header{
     border: rgb(255, 81, 0);
     border-style: none none dashed;
@@ -50,7 +59,7 @@ button:hover{
     background-color: whitesmoke;
 }
 
-button:active{background-color: #DDDDDD; border-color: white;}
+button:active{background-color: #DDDDDD; border-color: whitesmoke;}
 
 img{
     margin-left: 5px;
