@@ -1,12 +1,12 @@
-const btn_11 = document.getElementById("1A");
-const btn_12 = document.getElementById("1B");
-const btn_13 = document.getElementById("1C");
-const btn_21 = document.getElementById("2A");
-const btn_22 = document.getElementById("2B");
-const btn_23 = document.getElementById("2C");
-const btn_31 = document.getElementById("3A");
-const btn_32 = document.getElementById("3B");
-const btn_33 = document.getElementById("3C");
+const btn_11 = document.getElementById("11");
+const btn_12 = document.getElementById("12");
+const btn_13 = document.getElementById("13");
+const btn_21 = document.getElementById("21");
+const btn_22 = document.getElementById("22");
+const btn_23 = document.getElementById("23");
+const btn_31 = document.getElementById("31");
+const btn_32 = document.getElementById("32");
+const btn_33 = document.getElementById("33");
 
 // setup game
 let current_turn = "player";
@@ -14,29 +14,29 @@ let current_turn = "player";
 function bot_turn(){
     // for as long as I get an already taken space, regenerate another number, it's only 1 in 9 so it shoudn't be a problem
     let space_taken = true;
-    while(space_taken = true){
-        let num = Math.random();
-        num * 10;
-        num = Math.trunc(num);
-        let num1 = num % 3;
+    while(space_taken==true){
+        //generate new row and collumn to check
+        let num1 = Math.round(Math.random());
+        let num2 = Math.round(Math.random());
+        let num3 = Math.round(Math.random());
+        let final = num1+num2+num3;
 
-        // do it again, get random row and collumn number
-        num = Math.random();
-        num * 10;
-        num = Math.trunc(num);
-        let num2 = num % 3;
+        num1 = Math.round(Math.random());
+        num2 = Math.round(Math.random());
+        num3 = Math.round(Math.random());
+        let final2 = num1+num2+num3;
 
-        if(("btn_" + num1 + num2).innerHTML==''){
-            ("btn_" + num1 + num2).innerHTML="X";
-            space_taken=false;
-        }
+        if(final == 0){final += 1}
+        if(final2 == 0){final2 += 1}
+
+        console.log(final + "" + final2);
+        if(document.getElementById((final + "" + final2)).innerHTML==''){document.getElementById((final + "" + final2)).innerHTML="O"; space_taken=false}
+        
     }
-    
 };
 
 function turn(ID){
     if(current_turn == "player"){
-        console.log("called");
         if(ID.innerHTML==''){
             ID.innerHTML="X";
         }
