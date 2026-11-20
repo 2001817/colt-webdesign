@@ -5,15 +5,15 @@ const button = document.getElementById("clicker")
 let cash = 0;
 let mult = 1; let add = 1; let exp = 1; // grouped because they are for 1 formula
 
-let price1 = 1; // button prices group
-let price2 = 2000;
-let price3 = 30;
-let price4 = 450;
-let price5 = 1000000;
-let price6 = 100;
+let price1 = 1; // add +1 click
+let price2 = 2000; // double clicks
+let price3 = 30; // +1 passive income
+let price4 = 450; // increase passive income speed
+let price5 = 1000000; // reset
+let price6 = 100; // +5 per click
+let price7 = 1200; // double passive income
 
-let income = 0; let time = 2000; // passive income group
-
+let income = 0; let time = 2000; let passive_double = 1; // passive income group
 
 
 // don't use ^ for exponent, also the 1 + add screws stuff up because it isn't BigInt
@@ -54,15 +54,16 @@ function comma(num){
 
 
 //use for every upgrade button, so make it flexible... maybe it's gotten too flexible.
-function buy(ID, price, addition, multiply, power, A, B, C, msg, P, speed){
+function buy(ID, price, addition, multiply, power, A, B, C, msg, P, speed, P_double){
   // price will eventually get too expensive to buy
     if (price <= cash){
       cash -= price;
 
+      passive_double *= P_double
       income += P;
       time *= speed;
       time = Math.round(time);
-      document.getElementById("earnings2").innerHTML = "passive gain per " + String((time/1000) + " seconds: $" + comma(income));
+      document.getElementById("earnings2").innerHTML = "passive gain per " + String((time/1000) + " seconds: $" + comma(income * passive_double));
 
       add += A;
       mult *= B;
@@ -88,21 +89,21 @@ function buy(ID, price, addition, multiply, power, A, B, C, msg, P, speed){
 // yep, idfk what's happening here. maybe i'm dumb but addEventListener doesn't work, UNLESS:
 // you make an entirely new function... so i just called the other function... this feels stupid
 document.getElementById("upg1").addEventListener("click", function(){
-    price1 = buy("upg1", price1,      1,      1.4,       1,      1,      1,      1, "+1 cash per click", 0, 1);
-    //       | button | price of |  price | price | price    | add,   mult,  exponent | message for | passive | speed |
-});//        | name   | button   |  added | mult  | exponent |    money per click     | button      |  income | added |
+    price1 = buy("upg1", price1,      1,      1.4,       1,      1,      1,      1, "+1 cash per click", 0,     1,      1);
+    //       | button | price of |  price | price | price    | add,   mult,  exponent | message for | passive | speed | passive |
+});//        | name   | button   |  added | mult  | exponent |    money per click     | button      |  income | mult  | mult    |
   // use for everything :)                                                                         (none in this case)
 
 document.getElementById("upg2").addEventListener("click", function(){
-    price2 = buy("upg2", price2, 100, 3.5, 1, 0, 2, 1, "double cash per click", 0, 1);
+    price2 = buy("upg2", price2, 100, 3.5, 1, 0, 2, 1, "double cash per click", 0, 1, 1);
 });
 
 document.getElementById("upg3").addEventListener("click", function(){
-    price6 = buy("upg3", price6, 5, 1.4, 1, 5, 1, 1, "+5 cash per click", 0, 1);
+    price6 = buy("upg3", price6, 5, 1.4, 1, 5, 1, 1, "+5 cash per click", 0, 1, 1);
 });
 
 function workers(){
-    cash += income;
+    cash += (income * passive_double);
     button.innerHTML = "monies: " + comma(cash) + "<br>click for $$$";
 }
 
@@ -122,7 +123,7 @@ function setintervalfix(){
 }
 
 document.getElementById("passive1").addEventListener("click", function(){
-    price3 = buy("passive1", price3, 3, 1.2, 1, 0, 1, 1, "hire workers", 1, 1);
+    price3 = buy("passive1", price3, 3, 1.2, 1, 0, 1, 1, "hire workers", 1, 1, 1);
 });
 
 document.getElementById("passive_speed").addEventListener("click", function () {
@@ -130,5 +131,17 @@ document.getElementById("passive_speed").addEventListener("click", function () {
     document.getElementById("passive_speed").innerHTML = "Upgrade is Maxed out!";
     price4 = Infinity;
   }
-  price4 = buy("passive_speed", price4, 0, 1.5, 1, 0, 1, 1, "upgrade worker speed", 0, 0.8);
+  price4 = buy("passive_speed", price4, 0, 1.5, 1, 0, 1, 1, "upgrade worker speed", 0, 0.8, 1);
+});
+
+document.getElementById("passive_double").addEventListener("click", function(){
+    price7 = buy("passive_double", price7, 3, 2.4, 1, 0, 1, 1, "double worker efficency", 0, 1, 2);
+});
+
+
+// RESET BUTTON
+document.getElementById("reset").addEventListener("click", function(){
+    if(cash >= price5){
+        cash = 0;
+    }
 });
