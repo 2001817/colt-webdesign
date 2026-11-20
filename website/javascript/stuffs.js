@@ -2,7 +2,7 @@
 // just incase new features are added
 
 const button = document.getElementById("clicker")
-let cash = 0;
+let cash = 1500000;
 let mult = 1; let add = 1; let exp = 1; // grouped because they are for 1 formula
 
 let price1 = 1; // add +1 click
@@ -15,12 +15,30 @@ let price7 = 1200; // double passive income
 
 let income = 0; let time = 2000; let passive_double = 1; // passive income group
 
+let perm_mult = 1;
+
+// RESET BUTTON //
+function check(num, bool){
+    if(num >= 1000000){
+        // update reset button's given multiplier, as it depends on the money you have.
+        // truncate before dividing by the full 1 million, so that you keep 1 decimal place.
+        let perm = Math.trunc(num/100000);
+        perm /= 10;
+        
+        document.getElementById("reset").innerHTML = "RESET, but gain permanent boost (+" + perm + "x) <br>(depends on amount of money at reset)<br>1,000,000 dollars for starter."
+        if(bool == 1){return perm}
+    }
+}
+
+
 
 // don't use ^ for exponent, also the 1 + add screws stuff up because it isn't BigInt
 let earn = ((mult * add) ** exp);
 button.addEventListener("click", function(){
     cash += earn;
     document.getElementById("clicker").innerHTML = "monies: " + String(comma(cash)) + "<br>click for $$$";
+    // run check for RESET
+    check(cash, 0);
 });
 
 // ex: 1000000 --> 1,000,000
@@ -105,6 +123,8 @@ document.getElementById("upg3").addEventListener("click", function(){
 function workers(){
     cash += (income * passive_double);
     button.innerHTML = "monies: " + comma(cash) + "<br>click for $$$";
+    // run check for RESET
+    check(cash, 0);
 }
 
 // moreee w3schools digging for treasure
