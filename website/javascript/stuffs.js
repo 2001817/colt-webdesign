@@ -143,5 +143,6 @@ document.getElementById("passive_double").addEventListener("click", function(){
 document.getElementById("reset").addEventListener("click", function(){
     if(cash >= price5){
         cash = 0;
+        
     }
 });
